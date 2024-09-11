@@ -5,15 +5,14 @@ FROM $BASE_IMAGE
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
- && apt-get upgrade --yes \
- && apt-get install --yes --no-install-recommends \
-        ca-certificates \
-        dnsutils \
-        iputils-ping \
-        tini \
-        # requirement for nbgitpuller
-        git \
- && rm -rf /var/lib/apt/lists/*
+       && apt-get install --yes --no-install-recommends \
+       ca-certificates \
+       dnsutils \
+       iputils-ping \
+       tini \
+       # requirement for nbgitpuller
+       git \
+       && rm -rf /var/lib/apt/lists/*
 
 # install python packages.
 COPY docker/requirements-jupyter.txt requirements.txt

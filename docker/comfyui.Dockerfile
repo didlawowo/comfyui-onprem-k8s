@@ -1,12 +1,12 @@
-FROM nvidia/cuda:12.1.0-runtime-ubuntu20.04
-ENV TZ=Asia/Seoul
+FROM nvidia/cuda:12.4.0-runtime-ubuntu22.04
+ENV TZ=Europe/Paris
 ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /home/workspace
 
 # python
 RUN apt-get update \
-    && apt-get install -y mesa-utils libgl1-mesa-dri libgtkgl2.0-dev libgtkglext1-dev git software-properties-common apt-utils \
+    && apt-get install --yes --no-install-recommends  mesa-utils libgl1-mesa-dri libgtkgl2.0-dev libgtkglext1-dev git software-properties-common apt-utils \
     && add-apt-repository ppa:deadsnakes/ppa \
     && apt-get update \
     && apt install -y python3.10 python3.10-distutils curl \
